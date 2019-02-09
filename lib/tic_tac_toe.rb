@@ -82,18 +82,18 @@ def won?
   win_combination.length == 1 || (win_combination.length == 2 && winner[0] == winner[1])? win_combination[0] : nil
 end
 
-def full?(board)
+def full?
   count = 0
-  board.each.with_index do |position, index| 
-    if position_taken?(board, index) 
+  @board.each.with_index do |position, index| 
+    if position_taken?(index) 
       count += 1
     end  
   end
   count == 9 ? true : false
 end
 
-def draw?(board)
-  full?(board) && won?(board) == nil
+def draw?
+  full?&& !won?
 end
 
 def over?(board)
