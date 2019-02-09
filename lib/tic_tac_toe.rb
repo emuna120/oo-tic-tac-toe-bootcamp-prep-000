@@ -93,15 +93,15 @@ def full?
 end
 
 def draw?
-  full?&& !won?
+  full? && !won?
 end
 
 def over?
   won?|| draw? || full?
 end
 
-def winner(board)
-  won?(board) ? board[won?(board)[0]] : nil
+def winner
+  won? ? @board[won?(board)[0]] : nil
 end
 
 def play(board)
