@@ -70,13 +70,13 @@ def current_player
   turn_count.even? ?  "X" : "O"
 end
 
-def won?(board)
+def won?
   win_combination = []
   winner = []
   WIN_COMBINATIONS.each do |combination|
-    if position_taken?(board, combination[0]) && position_taken?(board, combination[1]) && position_taken?(board, combination[2]) && board[combination[0]] == board[combination[1]] && board[combination[0]] == board[combination[2]]
+    if position_taken?(combination[0]) && position_taken?(combination[1]) && position_taken?(combination[2]) && @board[combination[0]] == @board[combination[1]] && @board[combination[0]] == @board[combination[2]]
        win_combination << combination
-       winner << board[combination[0]]
+       winner << @board[combination[0]]
     end   
   end
   win_combination.length == 1 || (win_combination.length == 2 && winner[0] == winner[1])? win_combination[0] : nil
